@@ -110,6 +110,16 @@ else
     echo "Run $0 install"
     exit 1
   fi
-
-  ./tg/bin/telegram-cli -k ./tg/tg-server.pub -s ./bot/seedbot.lua -l 1 -E $@
+  while true; do
+   rm -r ../.telegram-cli/state
+   ./tg/bin/telegram-cli -b ./tg/tg-server.pub -s ./bot/seedbot.lua -l 1 -E $@
+   sleep 1
+  done
 fi
+
+
+
+
+
+
+
